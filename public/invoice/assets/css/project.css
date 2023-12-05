@@ -1,0 +1,318 @@
+.sub_heading h2 {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+hr.cstm-line {
+    margin: 18px 0!important;
+    background-color: #939393;
+}
+.uploadFile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0px 12px;
+    border: 1px solid #efefef;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 4%);
+    font-size: 14px;
+    font-weight: 500;
+    height: 146px;
+    width:100%;
+    
+    flex-direction: column;
+    
+    border-radius: 10px;
+}
+.upload-wrap img {
+    height: 15px;
+    object-fit: contain;
+    object-fit: contain;
+}
+.upload-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: auto;
+    padding: 5px 10px;
+    border: 1px solid #efefef;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.upload-wrap p,
+.upload-files {
+    margin-left: 15px;
+    color: #105aa0 !important;
+    font-weight: 500 !important;
+}
+
+input.inputfile.form-control {
+    position: absolute;
+    width: 140px;
+    opacity: 0;
+}
+textarea.form-control {
+    resize: none;
+}
+
+button.btn-add-more {
+    height: 146px;
+    width:100%;
+     font-size: 20px;
+     color: #80c344;
+     font-weight: 500;
+     background: #F7FFF0;
+     border: #94AF7C solid thin;
+     border-radius: 5px;
+     margin-top:6px;
+ }
+ 
+ button.btn-add-more span {
+     display: block;
+ }
+ 
+ button.btn-add-more span > i {
+     font-size:26px;
+ }
+ img.task-board
+ {
+    height: 17px;
+    object-fit: contain;
+ }
+ ul.action-list.current-project-list
+
+ {
+    justify-content: flex-start;
+ }
+ ul.action-list.current-project-list li
+{
+    margin-right: 20px;
+}
+ ul.action-list.current-project-list li:first-child {
+    display: flex;
+    align-items: center;
+}
+ul.action-list.current-project-list li a {
+    margin-right: 15px!important;
+    font-weight: 500;
+    font-size: 11px!important;
+    padding: 3px 0px;
+}
+ul.action-list.current-project-list li a:last-child {
+    margin-right:0;
+}
+ul.action-list.current-project-list li:last-child 
+{
+    margin: 0;
+}
+a.table-btn {
+    width: 120px;     
+    border-radius: 100px;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 12%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    padding: 2px 0px;
+    font-size: 14px;
+}
+a.table-btn i,
+a.table-btn img
+{
+    margin-right: 10px!important;
+}
+body table.display tbody td, body table.chat-list tbody td
+{
+    padding: 14px 18px!important;
+}
+ul.action-list.current-project-list a.green-btn {
+    width: 178px!important;
+    height: 40px;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px!important;
+}
+.common-bar-btn {
+    background: #f8fff1;
+    padding: 8px 15px;
+    border: 1px solid #80c344;
+    color: #80c344;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 15px;
+    font-size: 13px;
+    width: 158px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    cursor: pointer;
+    font-weight:500;
+}
+.breif-dtl
+{
+    width: 100%;
+}
+.task-create-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    position: absolute;
+    bottom:15px;
+    right: 30px;
+}
+.project-info
+{
+position: relative;
+}
+.common-bar-btn.ct-btnb {
+    background: #f3f9ff;
+    border-color: #4fa2fe;
+    color: #4fa2fe;
+}
+.tg-btn-wrap button.common-bar-btn.ctg-btn 
+{
+    border-color: #4fa2fe;
+}
+.common-bar-btn.ct-btnb:hover,
+.tg-btn-wrap button.common-bar-btn.ctg-btn 
+{
+    color: #fff;
+    background:#4fa2fe;
+}
+.common-modal .heading button.btn {
+    padding: 0;
+    position: absolute;
+    top: 30px;
+    right: 40px;
+}
+.common-bar-btn.ctg-btn:hover,
+td button.common-bar-btn.ctg-btn 
+{
+    color: #fff;
+    background:#80c344;
+}
+
+/* modal css */
+.common-modal .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.common-modal .modal-body
+{
+padding: 35px;
+}
+.common-modal h1 {
+    font-size: 18px;
+    font-weight: 600;
+}
+.common-modal .btns-wrap
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.common-modal .btns-wrap button.btn {
+    background: #80c344;
+    padding: 8px 15px;
+    border: 1px solid #80c344;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 15px;
+    font-size: 13px;
+    width: 158px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    cursor: pointer;
+    font-weight: 500;
+}
+.common-modal .btns-wrap button.btn.btn-cancel
+{
+    background:#e2e2e2;
+    color:#838282;
+    border-color:#e2e2e2;
+}
+.common-modal .modal-content {
+    
+    border:none;
+    border-radius: 10px;
+}
+ul.project-date li button {
+    background: #80c344;
+    color: #fff;
+    font-size: 12px;
+    width: auto;
+    z-index: 1;
+}
+/* task group css */
+.tg-btn-wrap {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: auto;
+}
+ul.project-date li {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+.profile-img {
+    display: flex;
+    align-items: center;
+}
+.profile-img figure {
+   margin-right: 10px;
+}
+ul.action-list li a i,
+ul.action-list li a img
+{
+    margin: 0!important;
+}
+ul.action-list li a
+{
+  
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+}
+
+.in-progress-status,
+.devlp-status,
+.Complete-status {
+    padding: 5px;
+    text-align: center;
+    background: #eaa564;
+    width: 170px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px!important;
+}
+.devlp-status{
+    background: #5bbbca;
+}
+.Complete-status
+{
+    background: #80c344;
+}
+input.text-input.from-control {
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #0000;
+    color: #5b5f6c;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}

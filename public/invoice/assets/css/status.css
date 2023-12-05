@@ -1,0 +1,178 @@
+.project-name.emp-id {
+    display: flex;
+    align-items: center;
+}
+
+.project-name.emp-id span.id {
+    margin-right: 7px;
+}
+
+button.common-bar-btn.view-descp {
+    background: #f8fff1;
+    padding: 8px 15px;
+    border: 1px solid #80c344;
+    color: #80c344;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 15px;
+    font-size: 13px;
+    width: 158px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    cursor: pointer;
+    font-weight: 500;
+}
+.ml-0 {
+    margin-left: 0!important;
+}
+button.common-bar-btn.view-descp:hover {
+    color: #f8fff1;
+    background: #80c344;
+}
+
+p.actual-date,
+.status-date-time span {
+    color: #101219;
+    font-size: 13px;
+    font-weight: 400;
+}
+.view-descp
+{
+    margin-left: 0;
+}
+.common-modal .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.common-modal .modal-body
+{
+padding: 35px;
+}
+.common-modal h1 {
+    font-size: 18px;
+    font-weight: 600;
+}
+.common-modal .btns-wrap
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.common-modal .btns-wrap button.btn {
+    background: #80c344;
+    padding: 8px 15px;
+    border: 1px solid #80c344;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 15px;
+    font-size: 13px;
+    width: 158px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    cursor: pointer;
+    font-weight: 500;
+}
+.common-modal .btns-wrap button.btn.btn-cancel
+{
+    background:#e2e2e2;
+    color:#838282;
+    border-color:#e2e2e2;
+}
+.common-modal .modal-content {
+    
+    border:none;
+    border-radius: 10px;
+}
+ul.project-date li button {
+    background: #80c344;
+    color: #fff;
+    font-size: 12px;
+    width: auto;
+    z-index: 1;
+}
+.common-modal button.btn
+{
+padding: 0;
+}
+.common-modal button.btn:focus
+{
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+.common-modal hr.cstm-line {
+    margin: 18px 0;
+    background-color: #939393;
+}
+.common-modal .text-wrap p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 36px;
+    color: #343434;
+    font-weight:400;
+}
+.common-modal  .date-flow {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+  button.common-bar-btn.view-descp.sendstatus {
+    color: #fff;
+    background: #80c344;
+}
+ button.common-bar-btn.view-descp.sendstatus i{
+  margin-right: 10px;
+}
+.common-modal  .date-flow .input-group {
+    width: 100%;
+    position: relative;
+}
+.common-modal .form-check-input:checked {
+    background-color: #80c344;
+    border-color: #80c344;
+}
+.common-modal  .date-flow input.datepicker_input.form-control.datepicker-input
+{
+margin-right:0;
+}
+.common-modal  .date-flow img.date-icon {
+    top: 50%;
+    transform: translateY(-50%);
+    right: 14px;
+    z-index: 9;
+    position: absolute;
+    left: unset;
+}
+.common-modal  .date-flow input {
+    padding: 14.5px 38px 14.5px 10px;
+    
+}
+.common-modal  input.datepicker_input.form-control.datepicker-input:focus,
+.common-modal  textarea.form-control:focus
+{
+outline: none;
+border: none;
+box-shadow: 0 10px 30px rgb(0 0 0 / 5%); 
+}
+.status-table th,
+.status-table td,
+.status-table p,
+.status-table .project-name.emp-id,
+.status-table .project-name.emp-id span,
+.status-table .status-date-time
+{
+    white-space: nowrap;
+}
+.common-modal .form-check.mt-4 label.form-check-label {
+    color: #5b5f6c;
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    top: -1px;
+}

@@ -1,0 +1,283 @@
+.appraisal-tab ul#pills-tab li button.nav-link {
+    width: auto;
+    padding: 0.5rem 1rem;
+}
+
+ul.action-list.appraisal {
+    display: flex;
+    align-items: center;
+    justify-content: initial;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: initial;
+}
+
+ul.action-list.appraisal li {
+    margin-right: 10px;
+}
+
+ul.action-list.appraisal li:last-child a {
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+
+ul.action-list.appraisal li:last-child a i {
+    margin: 0px;
+}
+
+body table.display tbody td {
+    padding: 10px 15px !important;
+    font-size: 14px;
+}
+
+
+/*modal-table*/
+.grid-five {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+
+.search-flt {
+    display: flex;
+    align-items: center;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+}
+
+.serach-input {
+    display: flex;
+    align-items: center;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+}
+
+label.form-label {
+    color: #5b5f6c;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.serach-input .form-control {
+    width: 220px;
+    border: none;
+    margin-left: 25px;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 5%);
+    padding: 11.5px 12px;
+    font-weight: 500;
+}
+
+.show-enteries {
+    display: flex;
+    align-items: center;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    margin-left: 45px;
+}
+
+.serach-input label,
+.show-enteries p,
+.view-flt p {
+    font-size: 14px;
+    margin-bottom: 0;
+    color: #343434;
+    font-weight: 400;
+}
+
+.show-enteries select.form-select {
+    width: 63px;
+    padding: 7px 15px;
+    margin: 0 10px;
+    position: relative;
+    border: 1px solid #ededed;
+}
+
+.export-buttons {
+    display: flex;
+    align-items: center;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    margin-left: 45px;
+}
+
+.export-buttons .export-button {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    border: #e3e3e3 solid thin;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*end*/
+
+
+/*contact-logs*/
+.contactlogs {
+    width: 789px;
+    position: fixed;
+    right: -130%;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: 0 22px 100px rgba(0, 0, 0, 0.5);
+    padding: 15px 15px;
+    transition: 0.4s;
+}
+
+.contactlogs.shows {
+    right: 0;
+    transition: 0.4s;
+}
+
+.flexlog {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: space-between;
+    padding: 15px 15px;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+.flexlog h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.flexlog span.closelog {
+    color: #f20;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.logsadd {
+    text-align: right;
+    padding: 15px 15px;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+.logsadd button {
+    background: #80c344;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 8px 24px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.logsadd button:hover {
+    color: #fff;
+}
+
+.logsadd button>i {
+    font-size: 10px;
+}
+
+
+/*end*/
+
+
+/*appraisal-detail*/
+.apriasal-detail {
+    background: linear-gradient(180deg, #f5de90 35%, #ffffff 102%);
+    padding: 30px 30px !important;
+}
+
+.apriasal-detail p.activated {
+    background: #80c344;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 20px;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.apriasal-detail .basici-profiles-info ul:last-child {
+    border-right: none;
+}
+
+.apriasal-detail .basici-profiles-info ul:nth-child(1) li span {
+    margin-left: 10px;
+}
+
+.appraise-title {
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: rgba(0, 0, 0, 0.1) solid thin;
+    padding: 15px 5px;
+}
+
+.addlogs {
+    text-align: left;
+}
+
+.addlogs .btn-cancel {
+    background: #e35050;
+}
+
+.btn-green-modal, .btn-green-modal:hover {
+    background: #80c344;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 8px 24px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 400;
+}
+.btn-green-new, .btn-green-new:hover {
+    background: #80c343;
+    border: solid thin #80c343;
+    font-size: 14px;
+    color: #fff;
+}
+/*end-detail*/
+
+
+/*modal-design*/
+.modaldesign .modal-content {
+    padding: 15px 15px;
+    border-radius: 20px;
+}
+.previewbox label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #5b5f6c;
+    margin-bottom: 10px;
+}
+.previewbox .form-control{
+    background: #f8f8f8;
+    border: #efefef solid thin;
+}
+/*end-modal-design*/
+
+
+
+@media all and (max-width: 767px) {
+    .contactlogs {
+        width: 100%;
+    }
+
+    .search-flt {
+        flex-direction: column;
+    }
+
+    .export-buttons {
+        margin-left: 0;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .show-enteries {
+        margin-left: 0px;
+    }
+}

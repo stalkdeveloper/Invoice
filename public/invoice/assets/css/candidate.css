@@ -1,0 +1,353 @@
+.white-heading-bar {
+    padding: 20.5px 30px;
+}
+
+.uploadFile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 10px 12px;
+    border: 1px solid #efefef;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 4%);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.upload-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 230px;
+}
+
+.upload-wrap p,
+.upload-files {
+    margin-left: 15px;
+    color: #105aa0 !important;
+    font-weight: 500 !important;
+}
+
+input.inputfile.form-control {
+    position: absolute;
+    width: 140px;
+    opacity: 0;
+}
+
+.doc-box ul li p {
+    color: #5b5f6c;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.menu-small .upload-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 140px;
+}
+
+/* tabs css */
+.candidate-detail-tabs ul#pills-tab {
+    width: 100%;
+    border-bottom: 1px solid #e4e4e4;
+    position: relative;
+}
+
+.candidate-detail-tabs ul#pills-tab li button.nav-link {
+
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.candidate-detail-tabs ul#pills-tab li button.nav-link {
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 1px;
+}
+
+.candidate-detail-tabs span.candidate-count {
+    width: 33px;
+    height: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: #5742c4;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.green-btn.view-all,
+.green-btn.view-all:hover {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 1.6rem 3rem rgba(0, 0, 0, .1);
+    box-shadow: 0 10px 30px rgb(0 0 0 / 9%);
+}
+
+.green-btn img {
+    margin-right: 10px;
+}
+
+.green-btn {
+    width: 178px;
+}
+
+select.sal-exp {
+    padding: 11px 20px;
+    color: #343434;
+    font-weight: 400;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    font-size: 14px;
+    text-transform: capitalize;
+    transition: 0.3s;
+    border: none;
+    width: 170px;
+    cursor: pointer;
+}
+
+select.sal-exp:focus-visible {
+    outline: none;
+}
+
+.status-select {
+    width: 18S0px !important;
+}
+
+td .client-dtkl figure {
+    height: 48px;
+    width: 48px;
+}
+
+td .download_wrap {
+    display: flex;
+    align-items: center;
+}
+
+td .download_wrap p {
+    font-size: 12px;
+}
+
+td .download_wrap span {
+    font-size: 10px;
+}
+
+td .download_wrap .client-dtkl p {
+    font-size: 13px;
+    color: #343434;
+    font-weight: 500;
+    margin-left: 5px;
+    margin-right: 30px;
+}
+
+.candidate-detail-tabs p.status-box.blue-satatus {
+    background: #4b9ede;
+    width: auto;
+    text-align: center;
+    justify-content: center;
+}
+
+.candidate-detail-tabs ul.action-list li:last-child a {
+    color: #343434;
+    display: flex;
+    align-items: center;
+    justify-content: CENTER;
+}
+
+.candidate-detail-tabs .project-box .dropdown__select-option img {
+    height: auto;
+}
+
+/* view page css */
+.box-shadow-2.p-15.border-5.profile-details.candiadte-profile {
+    background: linear-gradient(180deg, #7ccdf8 35%, #ffffff 102%);
+}
+
+/* Contact log */
+
+.contact-log {
+    position: fixed;
+    top: 0;
+    right: -888px;
+    height: 100vh;
+    width: 100%;
+    max-width: 768px;
+    background: #fff;
+    z-index: 999;
+    padding: 38px;
+    box-shadow: -28px 1px 67px 30px rgba(0, 0, 0, 0.2);
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+}
+
+.contact-log.show-contact-log {
+    right: 0;
+}
+
+.contct-log-content {
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    right: -20px;
+    top: -20px;
+}
+
+.chat-icon {
+    cursor: pointer;
+}
+
+.contact-log.show-contact-log .heading-wrap {
+    line-height: 25px;
+    height: 25px;
+}
+
+.contact-log.show-contact-log .heading-wrap h2 {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.contact-log.show-contact-log hr.cstm-line {
+    margin: 18px 0;
+    width: 100%;
+    background-color: #939393;
+    display: block;
+}
+
+.green-btn.add-log {
+    width: 128px;
+}
+
+.log-wrap {
+    width: 100%;
+    margin-top:65px;
+}
+.contact-btn {
+    margin:10px 0 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.contact-btn button,
+.contact-btn button:hover  {
+    margin-left: 15px!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background: #80c344;
+    font-weight: 400;
+    color: white;
+    border: 0 none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding:8px 5px;
+    margin: 0;
+    float: right;
+    font-size: 14px;
+    width: 158px;
+}
+.contact-log.show-contact-log .green-btn {   
+    padding: 8px 5px; 
+}
+.contact-btn button:first-child
+{
+    background: #e45050;
+}
+
+.dt-buttons button.dt-button.buttons-pdf {
+    background-image: url('../image/pdf.png') !important;
+}
+
+.dt-buttons button.dt-button.buttons-csv {
+    background-image: url('../image/csv.png') !important;
+}
+
+.dt-buttons button.dt-button.buttons-excel {
+    background-image: url('../image/excel.png') !important;
+}
+
+.dt-buttons button.dt-button.buttons-copy {
+    background-image: url('../image/copy.png') !important;
+}
+.dt-buttons span
+{
+    display: none;
+}
+.dt-buttons button.dt-button {
+    all: initial;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 0 1px;
+    border: 1px solid #ccc !important;
+    background: #f2f2f2 !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    box-shadow: none !important;
+    background-size: 32px !important;
+}
+ 
+.chat-list p
+{
+    font-size: 14px;
+}
+.contact-log.show-contact-log  .chat-list .dataTables_wrapper.no-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.contact-log.show-contact-log  .chat-list .dataTables_filter
+{
+    order: 1;
+}
+.contact-log.show-contact-log  .chat-list .dataTables_length
+{
+    order:3;
+}
+.contact-log.show-contact-log  .chat-list .dt-buttons
+{
+    order: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact-log.show-contact-log  .chat-list table#DataTables_Table_5
+{
+    order: 4;
+}
+.contact-log.show-contact-log  .chat-list .dataTables_paginate.paging_simple_numbers
+{
+    order: 5;
+}
+.contact-log.show-contact-log  .chat-list .dt-buttons button
+{
+    margin-right: 3px;
+}
+.contact-log.show-contact-log  .chat-list .dt-buttons button:last-child
+{
+    margin-right: 0;
+}
+.contact-log.show-contact-log  .chat-list div.dt-buttons
+{
+    display: block!important;
+}
+
+
+a.workdairy-btn.expiered-ticket.green-btn.view-all {
+    width: 178px;
+}p.upload-files {
+    margin-bottom: 0;
+}

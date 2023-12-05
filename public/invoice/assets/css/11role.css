@@ -1,0 +1,147 @@
+.sub_heading h2 {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+hr.cstm-line {
+    margin: 18px 0 30px;
+    background-color: #939393;
+}
+.role-heading {
+    padding: 11.5px 40px;
+    background: #ebebeb;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+.rol-option {
+    padding: 40px;
+}
+.rol-option form ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.rol-option form ul li {
+    width: 50%;
+    
+}
+.mb-25
+{
+    margin-bottom: 25px;
+
+}
+.rol-option .form-check-input{
+    width: 19px;
+    height: 19px;
+    border-color:#cccccc;
+    border-radius: 5px;
+}
+.rol-option label.form-check-label {
+    color: #101219;
+    font-size: 14px;
+    padding-left: 10px;
+    font-weight: 400;
+    position: relative;
+    top: 1px;
+}
+.rol-option .form-check-input:checked {
+    background-color: #80c344;
+    border-color: #80c344;
+}
+.assign-role-permission .doc-box {
+    height: calc(100% - 30px);
+}
+
+.role-btn .action-button-previous {    
+    background: #d0d0d0;
+    font-weight: 500;
+    color: white;
+    border: 0 none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 9px 5px;
+    margin: 0px 10px 0px 0px;
+    float: right;
+    font-size: 14px;
+    width: 158px;
+}
+
+.role-btn .action-button-previous:hover,
+.role-btn .action-button-previous:focus {
+    background-color: #000000
+}
+
+.role-btn .action-button,
+.green-btn
+ {   
+    background: #80c344;
+    font-weight: 500;
+    color: white;
+    border: 0 none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 9px 5px;
+    margin: 0;
+    float: right;
+    font-size: 14px;
+    width: 158px;   
+}
+
+.role-btn .action-button:hover,
+.green-btn:hover,
+.role-btn .action-button:focus, 
+.green-btn:focus {
+    background: #80c344;
+    color: #fff;
+}
+/* role list css */
+.green-btn
+{
+    margin-left: 15px!important;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.role-list ul.action-list {
+    justify-content: flex-start;
+}
+.role-list .action-list li 
+{
+    display: flex;
+    align-items: center; 
+    margin-right: 15px!important;
+}
+.role-list .action-list li :last-child
+{
+    margin-right: 0!important;
+}
+.role-heading {
+    padding: 6px 18px;    
+}
+.dropdown__select-option img {
+    height: auto;
+}
+/* ul.dropdown__filter li:last-child {
+    display: none;
+}
+ 
+body ul.dropdown__filter li.active,
+body ul.dropdown__filter li.active ul.dropdown__select li:last-child {
+    display: block!important;
+} */
+li.dropdown__filter-selected {
+    width: 40px;
+    height: 40px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+

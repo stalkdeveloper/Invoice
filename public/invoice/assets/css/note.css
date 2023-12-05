@@ -1,0 +1,180 @@
+.notes-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14.5px 30px;
+}
+
+.back-btn {
+    display: flex;
+    align-items: center;
+}
+
+.green-btn {
+    width: 128px;
+}
+
+.green-btn img {
+    margin-right: 10px;
+}
+
+.grid-fortheen {
+    display: grid;
+    column-gap: 20px;
+    row-gap: 20px;
+    grid-template-columns: 20% 78%;
+}
+
+.notes-record {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.notes-list {
+    width: 20%;
+    margin: 0 !important;
+}
+
+.note-dtl {
+    width: 80%;
+
+    margin-left: 40px;
+}
+
+.notes-content {
+    padding: 30px 50px;
+}
+
+.notes-content h2 {
+    color: #101219;
+    font-size: 38px;
+    font-weight: 600;
+}
+
+.notes-content p {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 27px;
+    margin-bottom: 30px;
+}
+
+.notes-content p:last-child {
+    margin-bottom: 0;
+}
+
+.search-flt {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.serach-input,
+input.form-control {
+    width: 100% !important;
+    margin-left: 0 !important;
+}
+
+.top-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.lead-dtl p {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    color: #7a8096;
+}
+
+.note-lead hr.cstm-line {
+    margin: 15px 0;
+}
+
+.notes-record .nav-pills .nav-link.active,
+.notes-record .nav-pills .show>.nav-link {
+    color: #101219;
+    background-color: #fff3eb;
+}
+
+.time-dtl {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-head h2 {
+    font-size: 18px;
+    color: #101219;
+    font-weight: 600;
+}
+
+.notes-list .nav-link {
+    padding: 15px 30px;
+    margin-bottom: 20px;
+}
+
+.time-dtl p {
+    font-size: 14px;
+    color: #fdb660;
+}
+form.add-notes input:focus,
+form.add-notes input,
+form.add-notes input::placeholder
+{
+     color: #101219;
+    font-size: 38px;
+    font-weight: 600;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+form.add-notes input::placeholder
+{
+    color:#cccdd1!important;
+}
+textarea.form-control,
+textarea.form-control:focus {
+     
+    border: none;
+    box-shadow: none;
+    position: relative;
+    background: -webkit-linear-gradient(top,#f0f0f0 0%,white 5%) 0 0;
+    background: -moz-linear-gradient(top,#f0f0f0 0%,white 5%) 0 0;
+    background: linear-gradient(top,#f0f0f0 0%,white 5%) 0 0;
+    -webkit-background-size: 100% 30px;
+    -moz-background-size: 100% 30px;
+    -ms-background-size: 100% 30px;
+    background-size: 100% 50px;
+    line-height: 50px;
+}
+form.add-notes hr.cstm-line {
+    margin: 18px 0 40px;
+    background-color: #80c344!important;
+    height: 1px;
+    opacity: 1;
+}
+.paper {
+    position: relative;
+    background: -webkit-linear-gradient(top,#f0f0f0 0%,white 5%) 0 0;
+    background: -moz-linear-gradient(top,#f0f0f0 0%,white 5%) 0 0;
+    background: linear-gradient(top,#f0f0f0 0%,white 5%) 0 0;
+    -webkit-background-size: 100% 30px;
+    -moz-background-size: 100% 30px;
+    -ms-background-size: 100% 30px;
+    background-size: 100% 50px;
+}
+.paper textarea {
+    border: none;
+    background-color: transparent;
+    height: 100%;
+    padding: 0px 0 0 5px;
+    line-height: 50px;
+    min-height: 680px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}

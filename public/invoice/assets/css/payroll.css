@@ -1,0 +1,85 @@
+.brown{
+    background: #c9a865;
+    display: inline-block;
+    padding: 0.55em 0.65em;
+    font-size: .75em;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+}
+.download, .download:hover{
+    background: #81C345;
+    border-color: #81C345;
+}
+ul.action-list.appraisal {
+    display: flex;
+    align-items: center;
+    justify-content: initial;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: initial;
+}
+ul.action-list.appraisal li:last-child a {
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+ul.action-list.appraisal li {
+    margin-right: 10px;
+}
+.viewall {
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    width: 140px;
+}
+.profile-details.payroll-details {
+    background: linear-gradient(180deg, #5edc9c 35%, #ffffff 102%);
+}
+.basici-profiles-info.payroll-grids {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+.basici-profiles-info.payroll-grids ul:nth-child(3) {
+    margin-right: 70px;
+    padding-right: 70px;
+    border-right: 1px solid #101219;
+}
+.basici-profiles-info.payroll-grids ul:last-child{
+    border-right: none;
+}
+
+.payroll-tab .cb-logo{
+    max-width: 220px;
+}
+.payroll-tab .table{
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    border-spacing: 0 !important;
+    border-collapse: collapse !important;
+}
+
+
+.payroll-tab table td.bolds{
+    font-weight: 600;
+}
+.pad-0{
+    padding: 0 !important;
+}
+.payroll-tab table.lastchild tr:last-child td{
+    border-bottom: 0;
+}
+
+
+@media all and (max-width: 767px){
+    .basici-profiles-info.payroll-grids {
+        grid-template-columns: auto;
+    }
+    .basici-profiles-info.payroll-grids ul:nth-child(3){
+        border-bottom: 1px solid #101219 !important;
+        border-right: 0;
+    }
+}
