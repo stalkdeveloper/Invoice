@@ -12,230 +12,232 @@
             <div class="inner-content">
                 <div class="outer-width" data-aos="fade-down">
                     <div class="role-name">
-                        <div class="invoice-tabs">
-                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="pills-invoice-details-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-invoice-details" type="button" role="tab"
-                                        aria-controls="pills-invoice-details" aria-selected="true">Invoice
-                                        Details</button>
-                                </li>
-                                 
+                        <form action="{{route('getStore')}}" method="POST" id="" enctype="multipart/form-data">
+                            @csrf
+                            <div class="invoice-tabs">
+                                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="pills-invoice-details-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-invoice-details" type="button" role="tab"
+                                            aria-controls="pills-invoice-details" aria-selected="true">Invoice
+                                            Details</button>
+                                    </li>
+                                    
 
-                            </ul>
-                            <div class="tab-content" id="pills-tabContent">
-                                <div class="tab-pane fade show active" id="pills-invoice-details" role="tabpanel"
-                                    aria-labelledby="pills-invoice-details-tab" tabindex="0">
-                                    <div class="box-shadow-1 border-5 p-30 outer-width">
-                                        <div class="inner-box">
-                                            <div class="invoice-heading">
-                                                <h2>Invoice</h2>
-                                                <input type="text" class="form-control" value="Invoice">
-                                            </div>
-                                            <div class="invoice-sub-heading">
-                                                <button type="submit"> <i class="fas fa-plus-square"></i> Add Sub
-                                                    Title</button>
-                                                <input type="text" class="form-control"
-                                                    placeholder="Enter subtitle here....">
-
-                                            </div>
-                                            <div class="logo-dates-wrap">
-                                                <div class="dates-detail">
-                                                    <ul>
-                                                        <li>
-                                                            <div class="label-wrap">
-                                                                <label class="">Invoice No<span
-                                                                        class="astric inside-label">*</span></label>
-                                                                <input type="text" class="form-control"
-                                                                    value="Invoice No">
-                                                                <span class="astric outside-label">*</span>
-                                                            </div>
-                                                            <div class="input-wrap">
-                                                                <input type="text" class="form-control" value="A00001">
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="label-wrap">
-                                                                <label class="">Invoice Date<span
-                                                                        class="astric inside-label">*</span></label>
-                                                                <input type="text" class="form-control"
-                                                                    value="Invoice Date">
-                                                                <span class="astric outside-label">*</span>
-                                                            </div>
-                                                            <div class="input-wrap">
-                                                                <div class="input-group">
-                                                                    <i class="fas fa-calendar-week"></i>
-                                                                    <input type="text"
-                                                                        class="datepicker_input form-control datepicker-input"
-                                                                        placeholder="30/08/2023" required=""
-                                                                        aria-label="From Date">
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="label-wrap">
-                                                                <label class="">Due Date<span
-                                                                        class="astric inside-label">*</span></label>
-                                                                <input type="text" class="form-control"
-                                                                    value="Due Date">
-                                                                <span class="astric outside-label">*</span>
-                                                            </div>
-                                                            <div class="input-wrap">
-                                                                <div class="input-group">
-                                                                    <i class="fas fa-calendar-week"></i>
-                                                                    <input type="text"
-                                                                        class="datepicker_input form-control datepicker-input"
-                                                                        placeholder="30/08/2023" required=""
-                                                                        aria-label="From Date">
-                                                                </div>
-                                                            </div>
-                                                            <div class="changeduedate">
-                                                                <a class="common-link" data-bs-toggle="modal"
-                                                                    data-bs-target="#changeduedate"><i
-                                                                        class="fas fa-cog"></i></a>
-                                                                <a class="common-link"><i class="fas fa-times"></i></a>
-                                                            </div>
-                                                        </li>
-
-                                                        <div class="add-field">
-                                                            <button type="button"> <i class="fas fa-plus-square"></i>Add
-                                                                More Fields</button>
-                                                        </div>
-                                                    </ul>
+                                </ul>
+                                <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-invoice-details" role="tabpanel"
+                                        aria-labelledby="pills-invoice-details-tab" tabindex="0">
+                                        <div class="box-shadow-1 border-5 p-30 outer-width">
+                                            <div class="inner-box">
+                                                <div class="invoice-heading">
+                                                    <h2>Invoice</h2>
+                                                    <input type="text" class="form-control" name="invoice" id="invoice" value="Invoice">
+                                                </div>
+                                                <div class="invoice-sub-heading">
+                                                    <button type="submit"> <i class="fas fa-plus-square"></i> Add Sub
+                                                        Title</button>
+                                                    <input type="text" class="form-control" id="subtitle" name="subtitle"
+                                                        placeholder="Enter subtitle here....">
 
                                                 </div>
-                                                <div class="business-logo">
-                                                    <div class="uploadFile" style="margin-right: 10px;">
-                                                        <div class="upload-wrap">
-                                                            <i class="fas fa-image"></i>
-                                                            <p class="upload-files"> Add Business Logo</p>
-                                                        </div>
-                                                        <input type="file" class="inputfile form-control" accept=".jpg, .jpeg, .png" name="file" id="fileInput">
-                                                    </div>
-                                                    <div class="image-preview">
-                                                        <img id="previewImage" src="#" alt="Preview" style="display: none; max-width: 50%; max-height: 50%; object-fit: cover;">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                      
-                                            <div class="table-items">
-                                                <ul id="myContainer">
-                                                    <li>
-                                                        <div class="input-flds">
-                                                            <div class="item-list first-item-list">
-                                                                <span class="itemname head-list">Item</span>
-                                                                <input type="text" class="form-control itemname"
-                                                                    placeholder="Item Name">
-                                                            </div>
-                                                            <div class="item-list">
-                                                             <span class="head-list">GST Rate</span>
-                                                                <div class="cstm-input">
-                                                                    <input type="text" class="form-control gst-rate"
-                                                                        placeholder="">
-                                                                    <span>%</span>
+                                                <div class="logo-dates-wrap">
+                                                    <div class="dates-detail">
+                                                        <ul>
+                                                            <li>
+                                                                <div class="label-wrap">
+                                                                    <label class="">Invoice No<span
+                                                                            class="astric inside-label">*</span>
+                                                                    </label>
+                                                                    <input type="text" class="form-control" id="" name="" value="Invoice No">
+                                                                    <span class="astric outside-label">*</span>
                                                                 </div>
-                                                            </div>
-                                                            <div class="item-list">
-                                                             <span class="head-list">Quantity</span>
-
-                                                                <div class="cstm-input">
-                                                                    <input type="number" class="form-control quantity"
-                                                                        placeholder="">
+                                                                <div class="input-wrap">
+                                                                    <input type="text" class="form-control" id="invoice_number" name="invoice_number" value="A00001">
                                                                 </div>
-                                                            </div>
-                                                            <div class="item-list">
-                                                             <span class="head-list">Rate</span>
-                                                                <div class="cstm-input">
-                                                                    <input type="number" class="form-control rate"
-                                                                        placeholder="">
-                                                                    <span>$</span>
+                                                            </li>
+                                                            <li>
+                                                                <div class="label-wrap">
+                                                                    <label class="">Invoice Date<span
+                                                                            class="astric inside-label">*</span></label>
+                                                                    <input type="text" class="form-control"
+                                                                        value="Invoice Date">
+                                                                    <span class="astric outside-label">*</span>
                                                                 </div>
-                                                            </div>
-                                                            <div class="item-list">
-                                                             <span class="head-list">Amount</span>
-                                                                <div class="cstm-input">
-                                                                    <input type="number" class="form-control amount"
-                                                                        placeholder="">
-                                                                    <span>$</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item-list">
-                                                             <span class="head-list">IGST</span>
-                                                                <div class="cstm-input">
-                                                                    <input type="number" class="form-control igst"
-                                                                        placeholder="">
-                                                                    <span>$</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item-list">
-                                                             <span class="head-list">TOTAL</span>
-
-                                                                <div class="cstm-input">
-                                                                    <input type="number" class="form-control total"
-                                                                        placeholder="">
-                                                                    <span>$</span>
-                                                                </div>
-                                                            </div>                                                        
-                                                            <div class="item-list">
-                                                             <span class="head-list"></span>
-                                                                <a href="" class="cross_icon"><i
-                                                                        class="fas fa-times"></i></a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="descri-thumb-row">
-                                                            <div class="add-field description">
-                                                                <button type="button"> <i class="fas fa-plus-square"></i>Add
-                                                                    Description</button>
-                                                                <textarea class="form-control" style="height:200px"></textarea>
-                                                            </div>
-                                                            <div class="add-field thumbnail">
-                                                                <button type="button"> <i class="fas fa-image"></i>Add
-                                                                    Thumbnail</button>
-                                                                <div class="uploadFile">
-                                                                    <div class="upload-wrap">
-                                                                        <i class="fas fa-plus-square"></i>
-                                                                        <p class="upload-files"> Upload Thumbnail</p>
+                                                                <div class="input-wrap">
+                                                                    <div class="input-group">
+                                                                        <i class="fas fa-calendar-week"></i>
+                                                                        <input type="text"
+                                                                            class="datepicker_input form-control datepicker-input"
+                                                                            placeholder="30/08/2023" id="invoice_date" name="invoice_date" required=""
+                                                                            aria-label="From Date">
                                                                     </div>
-                                                                    <!-- <span class="filename">No File Chosen</span> -->
-                                                                    <input type="file" class="inputfile form-control" name="file">
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="label-wrap">
+                                                                    <label class="">Due Date<span
+                                                                            class="astric inside-label">*</span></label>
+                                                                    <input type="text" class="form-control"
+                                                                        value="Due Date">
+                                                                    <span class="astric outside-label">*</span>
+                                                                </div>
+                                                                <div class="input-wrap">
+                                                                    <div class="input-group">
+                                                                        <i class="fas fa-calendar-week"></i>
+                                                                        <input type="text"
+                                                                            class="datepicker_input form-control datepicker-input"
+                                                                            placeholder="30/08/2023" id="invoice_due_date" name="invoice_due_date" required=""
+                                                                            aria-label="From Date">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="changeduedate">
+                                                                    <a class="common-link" data-bs-toggle="modal"
+                                                                        data-bs-target="#changeduedate"><i
+                                                                            class="fas fa-cog"></i></a>
+                                                                    <a class="common-link"><i class="fas fa-times"></i></a>
+                                                                </div>
+                                                            </li>
+
+                                                            <div class="add-field">
+                                                                <button type="button"> <i class="fas fa-plus-square"></i>Add
+                                                                    More Fields</button>
+                                                            </div>
+                                                        </ul>
+
+                                                    </div>
+                                                    <div class="business-logo">
+                                                        <div class="uploadFile" style="margin-right: 10px;">
+                                                            <div class="upload-wrap">
+                                                                <i class="fas fa-image"></i>
+                                                                <p class="upload-files"> Add Business Logo</p>
+                                                            </div>
+                                                            <input type="file" class="inputfile form-control" accept=".jpg, .jpeg, .png" name="logo" id="fileInput">
+                                                        </div>
+                                                        <div class="image-preview">
+                                                            <img id="previewImage" src="#" alt="Preview" style="display: none; max-width: 50%; max-height: 50%; object-fit: cover;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        
+                                                <div class="table-items">
+                                                    <ul id="myContainer">
+                                                        <li>
+                                                            <div class="input-flds">
+                                                                <div class="item-list first-item-list">
+                                                                    <span class="itemname head-list">Item</span>
+                                                                    <input type="text" class="form-control itemname" id="item_name" name="item_name"
+                                                                        placeholder="Item Name">
+                                                                </div>
+                                                                <div class="item-list">
+                                                                <span class="head-list">GST Rate</span>
+                                                                    <div class="cstm-input">
+                                                                        <input type="text" class="form-control gst-rate" id="gst_rate" name="gst_rate"
+                                                                            placeholder="">
+                                                                        <span>%</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="item-list">
+                                                                <span class="head-list">Quantity</span>
+
+                                                                    <div class="cstm-input">
+                                                                        <input type="number" class="form-control quantity" id="quantity" name="quantity"
+                                                                            placeholder="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="item-list">
+                                                                <span class="head-list">Rate</span>
+                                                                    <div class="cstm-input">
+                                                                        <input type="number" class="form-control rate" id="rate" name="rate"
+                                                                            placeholder="">
+                                                                        <span>$</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="item-list">
+                                                                <span class="head-list">Amount</span>
+                                                                    <div class="cstm-input">
+                                                                        <input type="number" class="form-control amount" id="amount" name="amount"
+                                                                            placeholder="">
+                                                                        <span>$</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="item-list">
+                                                                <span class="head-list">IGST</span>
+                                                                    <div class="cstm-input">
+                                                                        <input type="number" class="form-control igst" id="igst_rate" name="igst_rate"
+                                                                            placeholder="">
+                                                                        <span>$</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="item-list">
+                                                                <span class="head-list">TOTAL</span>
+
+                                                                    <div class="cstm-input">
+                                                                        <input type="number" class="form-control total" id="total_amount_items" name="total_amount_items"
+                                                                            placeholder="">
+                                                                        <span>$</span>
+                                                                    </div>
+                                                                </div>                                                        
+                                                                <div class="item-list">
+                                                                <span class="head-list"></span>
+                                                                    {{-- <a href="javascript:void(0)" class="cross_icon"><i class="fas fa-times"></i></a> --}}
+                                                                    <button type="button" class="cross_icon btn btn-link"><i class="fas fa-times"></i></button>
                                                                 </div>
                                                             </div>
-                                                            <div class="add-field new-line">
-                                                                <button type="button" id="appendButton"> <i class="fas fa-plus-square"></i>Add new
-                                                                    Line</button>
+                                                            <div class="descri-thumb-row">
+                                                                <div class="add-field description">
+                                                                    <button type="button"> <i class="fas fa-plus-square"></i>Add
+                                                                        Description</button>
+                                                                    <textarea class="form-control" style="height:200px" id="description" name="description"></textarea>
+                                                                </div>
+                                                                <div class="add-field thumbnail">
+                                                                    <button type="button"> <i class="fas fa-image"></i>Add
+                                                                        Thumbnail</button>
+                                                                    <div class="uploadFile">
+                                                                        <div class="upload-wrap">
+                                                                            <i class="fas fa-plus-square"></i>
+                                                                            <p class="upload-files"> Upload Thumbnail</p>
+                                                                        </div>
+                                                                        <!-- <span class="filename">No File Chosen</span> -->
+                                                                        <input type="file" class="inputfile form-control" name="thumbnail" id="thumbnail">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="add-field new-line">
+                                                                    <button type="button" id="appendButton" class="appendButton"> <i class="fas fa-plus-square"></i>Add new
+                                                                        Line</button>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="total-amount">
-                                                <div class="sub-total">
-                                                    <p>Amount<span>$9.10</span></p>
-                                                    <p>IGST<span>$1.00</span></p>
+                                                        </li>
+                                                    </ul>
                                                 </div>
-                                                <div class="grand_total">
-                                                    <p>Total <span>$10.18</span></p>
-                                                </div>
-                                                <div class="in-words">
-                                                    <p>Total (In words) 
-                                                        <!-- <a href="" class="cross_icon"><i class="fas fa-times"></i></a> -->
-                                                            </p>
-                                                    <p class="amount-in-words">One Dolloar and Eighteen Cents Only</p>
-                                                </div>
-
-                                                <div class="mb-100"></div>
+                                                <div class="total-amount">
+                                                    <div class="sub-total">
+                                                        <p>Amount<span class="amount-value">$9.10</span></p>
+                                                        <p>IGST<span class="igst-value">$1.00</span></p>
+                                                    </div>
+                                                    <div class="grand_total">
+                                                        <p>Total <span class="total-value">$10.18</span></p>
+                                                    </div>
+                                                    <div class="in-words">
+                                                        <p>Total (In words)</p>
+                                                        <p class="amount-in-words">One Dollar and Eighteen Cents Only</p>
+                                                    </div>
+                                                    <div class="mb-100"></div>
+                                                </div>                                                
                                             </div>
                                         </div>
                                     </div>
+                                    
                                 </div>
-                                 
+                                <div class="steps-btn">
+                                    {{-- <a href="create-invoice.html" class="green-btn border-btn">Save As Draft</a>
+                                    <a href="create-invoice.html" class="green-btn">Save & Continue</a> --}}
+                                    {{-- <button type="button" class="green-btn">Save & Continue</button> --}}
+                                    <input type="submit" class="green-btn" value="Save As Draft">
+                                    <input type="submit" class="green-btn" value="Save & Continue">
+                                </div>
                             </div>
-                            <div class="steps-btn">
-                                <a href="create-invoice.html" class="green-btn border-btn">Save As Draft</a>
-                                <a href="create-invoice.html" class="green-btn">Save & Continue</a>
-                            </div>
-                        </div>
-
+                        </form>
                     </div>
                 </div>
             </div>
@@ -3337,12 +3339,11 @@
                     <hr class="cstm-line">
                     <form class="w-100">
                         <div class="mb-4 mt-4">
-                            <p class="due-date">Set a Due Date<input type="number" class="form-control" placeholder="5"
-                                    value="Live">days after Challan Date</p>
+                            <p class="due-date">Set a Due Date<input type="number" class="form-control" placeholder="5" id="set_due_date" name="set_due_date" value="Live">days after Challan Date</p>
                         </div>
                         <div class="btns-wrap">
                             <button class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
-                            <button class="btn btn-save" data-bs-dismiss="modal">Save</button>
+                            <button class="btn btn-save" id="saveDueDate">Save</button>
                         </div>
                     </form>
                 </div>
@@ -7125,10 +7126,16 @@ document.addEventListener("DOMContentLoaded", function () {
     AOS.init();
 
     $(document).ready(function () {
-        $("#appendButton").click(function () {
-            var newData = '<li><div class="input-flds"><div class="item-list first-item-list"><span class="itemname head-list">Item</span><input type="text" class="form-control itemname" placeholder="Item Name"></div><div class="item-list"><span class="head-list">GST Rate</span><div class="cstm-input"><input type="text" class="form-control gst-rate" placeholder=""><span>%</span></div></div><div class="item-list"><span class="head-list">Quantity</span><div class="cstm-input"><input type="number" class="form-control quantity" placeholder=""></div></div><div class="item-list"><span class="head-list">Rate</span><div class="cstm-input"><input type="number" class="form-control rate" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list">Amount</span><div class="cstm-input"><input type="number" class="form-control amount" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list">IGST</span><div class="cstm-input"><input type="number" class="form-control igst" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list">TOTAL</span><div class="cstm-input"><input type="number" class="form-control total" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list"></span><a href="" class="cross_icon"><i class="fas fa-times"></i></a></div></div><div class="descri-thumb-row"><div class="add-field description"><button type="button"><i class="fas fa-plus-square"></i>Add Description</button><textarea class="form-control" style="height:200px"></textarea></div><div class="add-field thumbnail"><button type="button"><i class="fas fa-image"></i>Add Thumbnail</button><div class="uploadFile"><div class="upload-wrap"><i class="fas fa-plus-square"></i><p class="upload-files">Upload Thumbnail</p></div><input type="file" class="inputfile form-control" name="file"></div></div><div class="add-field new-line"><button type="button" id="appendButton"><i class="fas fa-plus-square"></i>Add new Line</button></div></div></li>';
+        $(".appendButton").click(function () {
+            // var newData = '<li><div class="input-flds"><div class="item-list first-item-list"><span class="itemname head-list">Item</span><input type="text" class="form-control itemname" placeholder="Item Name"></div><div class="item-list"><span class="head-list">GST Rate</span><div class="cstm-input"><input type="text" class="form-control gst-rate" placeholder=""><span>%</span></div></div><div class="item-list"><span class="head-list">Quantity</span><div class="cstm-input"><input type="number" class="form-control quantity" placeholder=""></div></div><div class="item-list"><span class="head-list">Rate</span><div class="cstm-input"><input type="number" class="form-control rate" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list">Amount</span><div class="cstm-input"><input type="number" class="form-control amount" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list">IGST</span><div class="cstm-input"><input type="number" class="form-control igst" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list">TOTAL</span><div class="cstm-input"><input type="number" class="form-control total" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list"></span><button type="button" class="cross_icon btn btn-link"><i class="fas fa-times"></i></button></div></div><div class="descri-thumb-row"><div class="add-field description"><button type="button"><i class="fas fa-plus-square"></i>Add Description</button><textarea class="form-control" style="height:200px"></textarea></div><div class="add-field thumbnail"><button type="button"><i class="fas fa-image"></i>Add Thumbnail</button><div class="uploadFile"><div class="upload-wrap"><i class="fas fa-plus-square"></i><p class="upload-files">Upload Thumbnail</p></div><input type="file" class="inputfile form-control" name="file"></div></div><div class="add-field new-line"><button type="button" id="appendButton" class="appendButton"><i class="fas fa-plus-square"></i>Add new Line</button></div></div></li>';
+            var newData = '<li><div class="input-flds"><div class="item-list first-item-list"><span class="itemname head-list">Item</span><input type="text" class="form-control itemname" id="item_name" name="item_name" placeholder="Item Name"></div><div class="item-list"><span class="head-list">GST Rate</span><div class="cstm-input"><input type="text" class="form-control gst-rate" id="gst_rate" name="gst_rate" placeholder=""><span>%</span></div></div><div class="item-list"><span class="head-list">Quantity</span><div class="cstm-input"><input type="number" class="form-control quantity" id="quantity" name="quantity" placeholder=""></div></div><div class="item-list"><span class="head-list">Rate</span><div class="cstm-input"><input type="number" class="form-control rate" id="rate" name="rate" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list">Amount</span><div class="cstm-input"><input type="number" class="form-control amount" id="amount" name="amount" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list">IGST</span><div class="cstm-input"><input type="number" class="form-control igst" id="igst_rate" name="igst_rate" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list">TOTAL</span><div class="cstm-input"><input type="number" class="form-control total" id="total_amount_items" name="total_amount_items" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list"></span><button type="button" class="cross_icon btn btn-link"><i class="fas fa-times"></i></button></div></div><div class="descri-thumb-row"><div class="add-field description"><button type="button"><i class="fas fa-plus-square"></i>Add Description</button><textarea class="form-control" style="height:200px" id="description" name="description"></textarea></div><div class="add-field thumbnail"><button type="button"><i class="fas fa-image"></i>Add Thumbnail</button><div class="uploadFile"><div class="upload-wrap"><i class="fas fa-plus-square"></i><p class="upload-files"> Upload Thumbnail</p></div><input type="file" class="inputfile form-control" name="thumbnail" id="thumbnail"></div></div><div class="add-field new-line"></div></div></li>';
             $("#myContainer").append(newData);
         });
+
+        $('#myContainer').on('click', '.cross_icon', function() {
+            $(this).closest('li').remove();
+        });
+        
     });
 </script>
 
@@ -7145,8 +7152,9 @@ document.addEventListener("DOMContentLoaded", function () {
     //     var appends = '<li><div class="label-wrap add-label-feild"><input type="text" class="form-control" value="Invoice No"></div><div class="input-wrap"><input type="text" class="form-control" value="Invoice No"></div></li>'
     //     $(appends).insertAfter(".dates-detail ul > li:last-child");
     // })
+
     $(document).ready(function () {
-        $('.add-field button').click(function () {
+        $('.dates-detail ul .add-field button').click(function () {
             var labelWrap = '<div class="input-wrap"><input type="text" class="form-control" value="" placeholder="Extra column name"></div><span class="astric inside-label">*</span>';
             var inputWrap = '<div class="input-wrap"><input type="text" class="form-control" value="" placeholder="Fill it"></div>';
             var removeButton = '<i class="fas fa-times remove-field"></i>';
@@ -7155,19 +7163,13 @@ document.addEventListener("DOMContentLoaded", function () {
             $('.dates-detail ul').append(newItem);
         });
 
-        // Event delegation for dynamically added elements
         $('.dates-detail ul').on('click', '.remove-field', function () {
             $(this).closest('li').remove();
         });
     });
-
-
-
 </script>
 
 <script type="text/javascript">
-
-    
     $('.add-field.thumbnail button').click(function (e) {
         $(".add-field.thumbnail").toggleClass("show-textarea");
         e.stopPropagation();
@@ -7226,9 +7228,142 @@ document.addEventListener("DOMContentLoaded", function () {
             reader.readAsDataURL(file);
         });
     });
-
- 
-
 </script>
 
 </html>
+<script>
+    $(document).ready(function() {
+        $('#saveDueDate').click(function(e) {
+            e.preventDefault();
+            var daysToAdd = parseInt($('#set_due_date').val());
+
+            if (!isNaN(daysToAdd)) {
+                var currentDate = new Date();
+                currentDate.setDate(currentDate.getDate() + daysToAdd);
+
+                var formattedDate = currentDate.toLocaleDateString('en-GB', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                });
+
+                $('#invoice_due_date').val(formattedDate);
+            }
+
+            // Close the modal
+            $('#changeduedate').modal('hide');
+        });
+    });
+
+    $(document).ready(function() {
+        $('#myContainer').on('input', '.quantity, .rate, .gst-rate, .igst', function() {
+            var $row = $(this).closest('li');
+            var quantity = parseFloat($row.find('.quantity').val()) || 0;
+            var rate = parseFloat($row.find('.rate').val()) || 0;
+            var gstRate = parseFloat($row.find('.gst-rate').val()) || 0;
+            var igst = parseFloat($row.find('.igst').val()) || 0;
+
+            var amount = quantity * rate;
+            var gstAmount = (amount * gstRate) / 100;
+            var totalAmount = amount + gstAmount;
+            var igstAmount = (totalAmount * igst) / 100;
+
+            $row.find('.amount').val(amount.toFixed(2));
+            $row.find('.total').val((totalAmount + igstAmount).toFixed(2));
+        });
+
+        // $('#appendButton').click(function() {
+        //     var newItem = $('#myContainer li').first().clone();
+        //     newItem.find('input, textarea').val('');
+        //     $('#myContainer').append(newItem);
+        // });
+
+        // $('#myContainer').on('click', '.cross_icon', function() {
+        //     $(this).closest('li').remove();
+        // });
+    });
+
+    $(document).ready(function() {
+        function convertNumberToWords(amount) {
+            const ones = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+            const teens = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+            const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+            const scales = ['', 'Thousand', 'Million', 'Billion', 'Trillion'];
+
+            if (amount === 0) return 'Zero';
+
+            let words = '';
+            let i = 0;
+
+            while (amount > 0) {
+                if (amount % 1000 !== 0) {
+                    let word = '';
+                    const hundreds = amount % 100;
+                    if (hundreds >= 20) {
+                        word = tens[Math.floor(hundreds / 10)] + ' ' + ones[hundreds % 10];
+                    } else if (hundreds >= 10) {
+                        word = teens[hundreds - 10];
+                    } else if (hundreds > 0) {
+                        word = ones[hundreds];
+                    }
+
+                    const scale = scales[i];
+                    words = word + (word ? ' ' : '') + (scale ? scale + ' ' : '') + words;
+                }
+
+                amount = Math.floor(amount / 1000);
+                i++;
+            }
+
+            return words.trim() + ' Only';
+        }
+
+        function updateTotal() {
+            var amountValue = parseFloat($('.amount-value').text().replace('$', '')) || 0;
+            var igstValue = parseFloat($row.find('.gst-rate').val()) || 0;
+            var totalValue = amountValue + igstValue;
+
+            $('.total-value').text('$' + totalValue.toFixed(2));
+            $('.amount-in-words').text(convertNumberToWords(totalValue));
+        }
+
+        updateTotal();
+
+        $('.amount-value, .igst-value').on('DOMSubtreeModified', updateTotal);
+});
+
+
+
+
+
+
+</script>
+<script>
+    // $(document).ready(function() {
+    //     $('.saveShipingAddress').on('click', function() {
+    //         var name = $('#fullName').val();
+    //         var dataToSend = {
+    //                 name: name,
+    //         };
+ 
+    //         $.ajax({
+    //             url: "{{ route('getStore') }}",
+    //             type: 'POST',
+    //             headers: {
+    //             'X-CSRF-TOKEN': '{{ csrf_token() }}',
+    //             },
+    //             data: dataToSend,
+    //             success: function(response) {
+    //             if (response.status === true) {
+    //                 toastr.success(response.message);
+    //                 //   setTimeout(function() {
+    //                 //     window.location.replace("");
+    //                 //     }, 1000);
+    //             } else {
+    //                 toastr.error(response.error);
+    //             }
+    //             },
+    //         });
+    //    });
+    // });
+</script>

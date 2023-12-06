@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\InvoiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,7 @@ Route::get('/', function () {
     return view('invoice.create-invoice');
     // return view('welcome');
 });
+
+
+Route::get('create-invoice',[InvoiceController::class,'create'])->name('getCreate');
+Route::post('store-invoice',[InvoiceController::class,'store'])->name('getStore');
