@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->longText('description')->nullable();
             $table->string('invoice_number')->nullable();
-            $table->string('invoice_date')->nullable();
-            $table->string('due_date')->nullable();
-            $table->string('after_chalan_days')->nullable();
+            $table->date('invoice_date')->nullable();
+            $table->date('due_date')->nullable();
+            $table->integer('after_chalan_days')->nullable();
             $table->string('logo')->nullable();
             $table->decimal('total', 16, 2)->nullable();
             $table->enum('in_draft',['0', '1'])->default('1')->comment('0 means save as draft and 1 means not in draft');

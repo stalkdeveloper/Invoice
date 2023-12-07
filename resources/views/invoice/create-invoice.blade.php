@@ -12,7 +12,7 @@
             <div class="inner-content">
                 <div class="outer-width" data-aos="fade-down">
                     <div class="role-name">
-                        <form action="{{route('getStore')}}" method="POST" id="" enctype="multipart/form-data">
+                        <form action="{{ route('getStore') }}" method="POST" id="invoiceForm" enctype="multipart/form-data">
                             @csrf
                             <div class="invoice-tabs">
                                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -35,11 +35,13 @@
                                                     <input type="text" class="form-control" name="invoice" id="invoice" value="Invoice">
                                                 </div>
                                                 <div class="invoice-sub-heading">
-                                                    <button type="submit"> <i class="fas fa-plus-square"></i> Add Sub
+                                                    <button type="button"> <i class="fas fa-plus-square"></i> Add Sub
                                                         Title</button>
-                                                    <input type="text" class="form-control" id="subtitle" name="subtitle"
+                                                    <input type="text" class="form-control" id="subtitle" name="subtitle" value="{{ old('subtitle') }}"
                                                         placeholder="Enter subtitle here....">
-
+                                                        <span class="error">
+                                                            
+                                                        </span>
                                                 </div>
                                                 <div class="logo-dates-wrap">
                                                     <div class="dates-detail">
@@ -56,6 +58,9 @@
                                                                     <input type="text" class="form-control" id="invoice_number" name="invoice_number" value="A00001">
                                                                 </div>
                                                             </li>
+                                                            <?php 
+                                                                $currentData = getCurrentDate()
+                                                            ?>
                                                             <li>
                                                                 <div class="label-wrap">
                                                                     <label class="">Invoice Date<span
@@ -69,7 +74,7 @@
                                                                         <i class="fas fa-calendar-week"></i>
                                                                         <input type="text"
                                                                             class="datepicker_input form-control datepicker-input"
-                                                                            placeholder="30/08/2023" id="invoice_date" name="invoice_date" required=""
+                                                                            placeholder="30/08/2023" value="{{ old('invoice_date') ?? $currentData}}" id="invoice_date" name="invoice_date" required=""
                                                                             aria-label="From Date">
                                                                     </div>
                                                                 </div>
@@ -87,7 +92,7 @@
                                                                         <i class="fas fa-calendar-week"></i>
                                                                         <input type="text"
                                                                             class="datepicker_input form-control datepicker-input"
-                                                                            placeholder="30/08/2023" id="invoice_due_date" name="invoice_due_date" required=""
+                                                                            placeholder="30/08/2023" value="{{ old('invoice_due_date') ?? $currentData}}" id="invoice_due_date" name="invoice_due_date" required=""
                                                                             aria-label="From Date">
                                                                     </div>
                                                                 </div>
@@ -97,9 +102,10 @@
                                                                             class="fas fa-cog"></i></a>
                                                                     <a class="common-link"><i class="fas fa-times"></i></a>
                                                                 </div>
+                                                                <input type="hidden" name="after_chalan_days" id="after_chalan_days" value=""/>
                                                             </li>
 
-                                                            <div class="add-field">
+                                                            <div class="add-field extra-column">
                                                                 <button type="button"> <i class="fas fa-plus-square"></i>Add
                                                                     More Fields</button>
                                                             </div>
@@ -121,19 +127,17 @@
                                                 </div>
                                         
                                                 <div class="table-items">
-                                                    <ul id="myContainer">
+                                                    <ul id="myContainer" class="myContainer">
                                                         <li>
                                                             <div class="input-flds">
                                                                 <div class="item-list first-item-list">
                                                                     <span class="itemname head-list">Item</span>
-                                                                    <input type="text" class="form-control itemname" id="item_name" name="item_name"
-                                                                        placeholder="Item Name">
+                                                                    <input type="text" class="form-control itemname" id="item_name" name="item_name[0][item_name]" value="{{ empty(old('item_name')[0]['item_name']) ? '' : old('item_name')[0]['item_name'] }}" placeholder="Item Name" required>
                                                                 </div>
                                                                 <div class="item-list">
                                                                 <span class="head-list">GST Rate</span>
                                                                     <div class="cstm-input">
-                                                                        <input type="text" class="form-control gst-rate" id="gst_rate" name="gst_rate"
-                                                                            placeholder="">
+                                                                        <input type="text" class="form-control gst-rate" id="gst_rate" name="item_name[0][gst_rate]" value="{{ empty(old('item_name')[0]['gst_rate']) ? '' : old('item_name')[0]['gst_rate'] }}" placeholder="" oninput="validateInput(this)" required>
                                                                         <span>%</span>
                                                                     </div>
                                                                 </div>
@@ -141,31 +145,27 @@
                                                                 <span class="head-list">Quantity</span>
 
                                                                     <div class="cstm-input">
-                                                                        <input type="number" class="form-control quantity" id="quantity" name="quantity"
-                                                                            placeholder="">
+                                                                        <input type="number" class="form-control quantity" id="quantity" name="item_name[0][quantity]" value="{{ empty(old('item_name')[0]['quantity']) ? '' : old('item_name')[0]['quantity'] }}" placeholder="" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="item-list">
                                                                 <span class="head-list">Rate</span>
                                                                     <div class="cstm-input">
-                                                                        <input type="number" class="form-control rate" id="rate" name="rate"
-                                                                            placeholder="">
+                                                                        <input type="number" class="form-control rate" id="rate" name="item_name[0][rate]" value="{{ empty(old('item_name')[0]['rate']) ? '' : old('item_name')[0]['rate'] }}" placeholder="" required>
                                                                         <span>$</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="item-list">
                                                                 <span class="head-list">Amount</span>
                                                                     <div class="cstm-input">
-                                                                        <input type="number" class="form-control amount" id="amount" name="amount"
-                                                                            placeholder="">
+                                                                        <input type="number" class="form-control amount" id="amount" name="item_name[0][amount]" value="{{ empty(old('item_name')[0]['amount']) ? '' : old('item_name')[0]['amount'] }}" placeholder="" required>
                                                                         <span>$</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="item-list">
                                                                 <span class="head-list">IGST</span>
                                                                     <div class="cstm-input">
-                                                                        <input type="number" class="form-control igst" id="igst_rate" name="igst_rate"
-                                                                            placeholder="">
+                                                                        <input type="number" class="form-control igst" id="igst_rate" name="item_name[0][igst_rate]" value="{{ empty(old('item_name')[0]['igst_rate']) ? '' : old('item_name')[0]['igst_rate'] }}" placeholder="" required>
                                                                         <span>$</span>
                                                                     </div>
                                                                 </div>
@@ -173,22 +173,21 @@
                                                                 <span class="head-list">TOTAL</span>
 
                                                                     <div class="cstm-input">
-                                                                        <input type="number" class="form-control total" id="total_amount_items" name="total_amount_items"
-                                                                            placeholder="">
+                                                                        <input type="number" class="form-control total" id="total_amount_items" name="item_name[0][total_amount_items]" value="{{ empty(old('item_name')[0]['total_amount_items']) ? '' : old('item_name')[0]['total_amount_items'] }}" step="0.01" min="0" placeholder="" required>
                                                                         <span>$</span>
                                                                     </div>
                                                                 </div>                                                        
                                                                 <div class="item-list">
                                                                 <span class="head-list"></span>
                                                                     {{-- <a href="javascript:void(0)" class="cross_icon"><i class="fas fa-times"></i></a> --}}
-                                                                    <button type="button" class="cross_icon btn btn-link"><i class="fas fa-times"></i></button>
+                                                                    {{-- <button type="button" class="cross_icon btn btn-link"><i class="fas fa-times"></i></button> --}}
                                                                 </div>
                                                             </div>
                                                             <div class="descri-thumb-row">
                                                                 <div class="add-field description">
                                                                     <button type="button"> <i class="fas fa-plus-square"></i>Add
                                                                         Description</button>
-                                                                    <textarea class="form-control" style="height:200px" id="description" name="description"></textarea>
+                                                                    <textarea class="form-control" style="height:200px" id="description" name="item_name[0][description]"></textarea>
                                                                 </div>
                                                                 <div class="add-field thumbnail">
                                                                     <button type="button"> <i class="fas fa-image"></i>Add
@@ -199,7 +198,7 @@
                                                                             <p class="upload-files"> Upload Thumbnail</p>
                                                                         </div>
                                                                         <!-- <span class="filename">No File Chosen</span> -->
-                                                                        <input type="file" class="inputfile form-control" name="thumbnail" id="thumbnail">
+                                                                        <input type="file" class="inputfile form-control" accept=".jpg, .jpeg, .png" name="item_name[0][thumbnail]" id="thumbnail">
                                                                     </div>
                                                                 </div>
                                                                 <div class="add-field new-line">
@@ -212,15 +211,16 @@
                                                 </div>
                                                 <div class="total-amount">
                                                     <div class="sub-total">
-                                                        <p>Amount<span class="amount-value">$9.10</span></p>
-                                                        <p>IGST<span class="igst-value">$1.00</span></p>
+                                                        <p>Amount<span class="amount-value">$0.0</span></p>
+                                                        <p>IGST<span class="igst-value">$0.0</span></p>
                                                     </div>
                                                     <div class="grand_total">
-                                                        <p>Total <span class="total-value">$10.18</span></p>
+                                                        <input type="hidden" name="total-item-value" id="total-item-value" value=""/>
+                                                        <p>Total <span class="total-value">$0.0</span></p>
                                                     </div>
                                                     <div class="in-words">
                                                         <p>Total (In words)</p>
-                                                        <p class="amount-in-words">One Dollar and Eighteen Cents Only</p>
+                                                        <p class="amount-in-words"></p>
                                                     </div>
                                                     <div class="mb-100"></div>
                                                 </div>                                                
@@ -232,9 +232,8 @@
                                 <div class="steps-btn">
                                     {{-- <a href="create-invoice.html" class="green-btn border-btn">Save As Draft</a>
                                     <a href="create-invoice.html" class="green-btn">Save & Continue</a> --}}
-                                    {{-- <button type="button" class="green-btn">Save & Continue</button> --}}
-                                    <input type="submit" class="green-btn" value="Save As Draft">
-                                    <input type="submit" class="green-btn" value="Save & Continue">
+                                    <input type="submit" class="green-btn border-btn" name="invoiceFormSubmit" value="Save As Draft">
+                                    <input type="submit" class="green-btn" name="invoiceFormSubmit" value="Save & Continue">
                                 </div>
                             </div>
                         </form>
@@ -3343,7 +3342,7 @@
                         </div>
                         <div class="btns-wrap">
                             <button class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
-                            <button class="btn btn-save" id="saveDueDate">Save</button>
+                            <button type="button" class="btn btn-save" id="saveDueDate">Save</button>
                         </div>
                     </form>
                 </div>
@@ -7127,8 +7126,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     $(document).ready(function () {
         $(".appendButton").click(function () {
-            // var newData = '<li><div class="input-flds"><div class="item-list first-item-list"><span class="itemname head-list">Item</span><input type="text" class="form-control itemname" placeholder="Item Name"></div><div class="item-list"><span class="head-list">GST Rate</span><div class="cstm-input"><input type="text" class="form-control gst-rate" placeholder=""><span>%</span></div></div><div class="item-list"><span class="head-list">Quantity</span><div class="cstm-input"><input type="number" class="form-control quantity" placeholder=""></div></div><div class="item-list"><span class="head-list">Rate</span><div class="cstm-input"><input type="number" class="form-control rate" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list">Amount</span><div class="cstm-input"><input type="number" class="form-control amount" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list">IGST</span><div class="cstm-input"><input type="number" class="form-control igst" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list">TOTAL</span><div class="cstm-input"><input type="number" class="form-control total" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list"></span><button type="button" class="cross_icon btn btn-link"><i class="fas fa-times"></i></button></div></div><div class="descri-thumb-row"><div class="add-field description"><button type="button"><i class="fas fa-plus-square"></i>Add Description</button><textarea class="form-control" style="height:200px"></textarea></div><div class="add-field thumbnail"><button type="button"><i class="fas fa-image"></i>Add Thumbnail</button><div class="uploadFile"><div class="upload-wrap"><i class="fas fa-plus-square"></i><p class="upload-files">Upload Thumbnail</p></div><input type="file" class="inputfile form-control" name="file"></div></div><div class="add-field new-line"><button type="button" id="appendButton" class="appendButton"><i class="fas fa-plus-square"></i>Add new Line</button></div></div></li>';
-            var newData = '<li><div class="input-flds"><div class="item-list first-item-list"><span class="itemname head-list">Item</span><input type="text" class="form-control itemname" id="item_name" name="item_name" placeholder="Item Name"></div><div class="item-list"><span class="head-list">GST Rate</span><div class="cstm-input"><input type="text" class="form-control gst-rate" id="gst_rate" name="gst_rate" placeholder=""><span>%</span></div></div><div class="item-list"><span class="head-list">Quantity</span><div class="cstm-input"><input type="number" class="form-control quantity" id="quantity" name="quantity" placeholder=""></div></div><div class="item-list"><span class="head-list">Rate</span><div class="cstm-input"><input type="number" class="form-control rate" id="rate" name="rate" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list">Amount</span><div class="cstm-input"><input type="number" class="form-control amount" id="amount" name="amount" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list">IGST</span><div class="cstm-input"><input type="number" class="form-control igst" id="igst_rate" name="igst_rate" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list">TOTAL</span><div class="cstm-input"><input type="number" class="form-control total" id="total_amount_items" name="total_amount_items" placeholder=""><span>$</span></div></div><div class="item-list"><span class="head-list"></span><button type="button" class="cross_icon btn btn-link"><i class="fas fa-times"></i></button></div></div><div class="descri-thumb-row"><div class="add-field description"><button type="button"><i class="fas fa-plus-square"></i>Add Description</button><textarea class="form-control" style="height:200px" id="description" name="description"></textarea></div><div class="add-field thumbnail"><button type="button"><i class="fas fa-image"></i>Add Thumbnail</button><div class="uploadFile"><div class="upload-wrap"><i class="fas fa-plus-square"></i><p class="upload-files"> Upload Thumbnail</p></div><input type="file" class="inputfile form-control" name="thumbnail" id="thumbnail"></div></div><div class="add-field new-line"></div></div></li>';
+            let datacount = $('.myContainer').length;
+            var newData = '<li><div class="input-flds myContainer"><div class="item-list first-item-list"><span class="itemname head-list">Item</span><input type="text" class="form-control itemname" id="item_name" name="item_name['+datacount+'][item_name]" placeholder="Item Name" required></div><div class="item-list"><span class="head-list">GST Rate</span><div class="cstm-input"><input type="text" class="form-control gst-rate" id="gst_rate" name="item_name['+datacount+'][gst_rate]" placeholder="" oninput="validateInput(this)" required><span>%</span></div></div><div class="item-list"><span class="head-list">Quantity</span><div class="cstm-input"><input type="number" class="form-control quantity" id="quantity" name="item_name['+datacount+'][quantity]" placeholder="" required></div></div><div class="item-list"><span class="head-list">Rate</span><div class="cstm-input"><input type="number" class="form-control rate" id="rate" name="item_name['+datacount+'][rate]" placeholder="" required><span>$</span></div></div><div class="item-list"><span class="head-list">Amount</span><div class="cstm-input"><input type="number" class="form-control amount" id="amount" name="item_name['+datacount+'][amount]" placeholder="" required><span>$</span></div></div><div class="item-list"><span class="head-list">IGST</span><div class="cstm-input"><input type="number" class="form-control igst" id="igst_rate" name="item_name['+datacount+'][igst_rate]" placeholder="" required><span>$</span></div></div><div class="item-list"><span class="head-list">TOTAL</span><div class="cstm-input"><input type="number" class="form-control total" id="total_amount_items" name="item_name['+datacount+'][total_amount_items]" placeholder="" step="0.01" min="0" required><span>$</span></div></div><div class="item-list"><span class="head-list"></span><button type="button" class="cross_icon btn btn-link"><i class="fas fa-times"></i></button></div></div><div class="descri-thumb-row"><div class="add-field description"><button type="button"><i class="fas fa-plus-square"></i>Add Description</button><textarea class="form-control" style="height:200px" id="description" name="item_name['+datacount+'][description]"></textarea></div><div class="add-field thumbnail"><button type="button"><i class="fas fa-image"></i>Add Thumbnail</button><div class="uploadFile"><div class="upload-wrap"><i class="fas fa-plus-square"></i><p class="upload-files"> Upload Thumbnail</p></div><input type="file" class="inputfile form-control" accept=".jpg, .jpeg, .png" name="item_name['+datacount+'][thumbnail]" id="thumbnail"></div></div><div class="add-field new-line"></div></div></li>';
             $("#myContainer").append(newData);
         });
 
@@ -7155,11 +7154,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     $(document).ready(function () {
         $('.dates-detail ul .add-field button').click(function () {
-            var labelWrap = '<div class="input-wrap"><input type="text" class="form-control" value="" placeholder="Extra column name"></div><span class="astric inside-label">*</span>';
-            var inputWrap = '<div class="input-wrap"><input type="text" class="form-control" value="" placeholder="Fill it"></div>';
+            let extraDataCount = $('.extra-column').length;
+            var labelWrap = '<div class="input-wrap"><input type="text" class="form-control" value="" name="extra_column['+extraDataCount+'][extra_column_name]" id="extra_column" placeholder="Extra column name"></div><span class="astric inside-label">*</span>';
+            var inputWrap = '<div class="input-wrap"><input type="text" class="form-control" value="" name="extra_column['+extraDataCount+'][extra_column_value]" id="extra_c" placeholder="Fill it"></div>';
             var removeButton = '<i class="fas fa-times remove-field"></i>';
 
-            var newItem = '<li>' + labelWrap + inputWrap + removeButton + '</li>';
+            var newItem = '<li class="extra-column">' + labelWrap + inputWrap + removeButton + '</li>';
             $('.dates-detail ul').append(newItem);
         });
 
@@ -7236,7 +7236,6 @@ document.addEventListener("DOMContentLoaded", function () {
         $('#saveDueDate').click(function(e) {
             e.preventDefault();
             var daysToAdd = parseInt($('#set_due_date').val());
-
             if (!isNaN(daysToAdd)) {
                 var currentDate = new Date();
                 currentDate.setDate(currentDate.getDate() + daysToAdd);
@@ -7250,8 +7249,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 $('#invoice_due_date').val(formattedDate);
             }
 
-            // Close the modal
             $('#changeduedate').modal('hide');
+            $('#after_chalan_days').val(daysToAdd);
         });
     });
 
@@ -7271,16 +7270,6 @@ document.addEventListener("DOMContentLoaded", function () {
             $row.find('.amount').val(amount.toFixed(2));
             $row.find('.total').val((totalAmount + igstAmount).toFixed(2));
         });
-
-        // $('#appendButton').click(function() {
-        //     var newItem = $('#myContainer li').first().clone();
-        //     newItem.find('input, textarea').val('');
-        //     $('#myContainer').append(newItem);
-        // });
-
-        // $('#myContainer').on('click', '.cross_icon', function() {
-        //     $(this).closest('li').remove();
-        // });
     });
 
     $(document).ready(function() {
@@ -7290,24 +7279,26 @@ document.addEventListener("DOMContentLoaded", function () {
             const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
             const scales = ['', 'Thousand', 'Million', 'Billion', 'Trillion'];
 
-            if (amount === 0) return 'Zero';
+            const toWords = (num) => {
+                if (num === 0) return '';
+
+                if (num < 10) return ones[num];
+                if (num < 20) return teens[num - 10];
+                if (num < 100) return tens[Math.floor(num / 10)] + ' ' + ones[num % 10];
+                
+                return ones[Math.floor(num / 100)] + ' Hundred ' + toWords(num % 100);
+            };
+
+            if (amount === 0) return 'Zero dollars';
 
             let words = '';
             let i = 0;
 
             while (amount > 0) {
                 if (amount % 1000 !== 0) {
-                    let word = '';
-                    const hundreds = amount % 100;
-                    if (hundreds >= 20) {
-                        word = tens[Math.floor(hundreds / 10)] + ' ' + ones[hundreds % 10];
-                    } else if (hundreds >= 10) {
-                        word = teens[hundreds - 10];
-                    } else if (hundreds > 0) {
-                        word = ones[hundreds];
-                    }
-
+                    const word = toWords(amount % 1000);
                     const scale = scales[i];
+
                     words = word + (word ? ' ' : '') + (scale ? scale + ' ' : '') + words;
                 }
 
@@ -7315,55 +7306,54 @@ document.addEventListener("DOMContentLoaded", function () {
                 i++;
             }
 
-            return words.trim() + ' Only';
+            return words.trim() + ' dollars';
         }
 
-        function updateTotal() {
-            var amountValue = parseFloat($('.amount-value').text().replace('$', '')) || 0;
-            var igstValue = parseFloat($row.find('.gst-rate').val()) || 0;
-            var totalValue = amountValue + igstValue;
 
+
+        function updateTotals() {
+            var totalAmount = 0;
+            var totalIgst = 0;
+
+            $('#myContainer li').each(function() {
+                var $row = $(this);
+                var quantity = parseFloat($row.find('.quantity').val()) || 0;
+                var rate = parseFloat($row.find('.rate').val()) || 0;
+                var gstRate = parseFloat($row.find('.gst-rate').val()) || 0;
+                var igst = parseFloat($row.find('.igst').val()) || 0;
+
+                var amount = quantity * rate;
+                var gstAmount = (amount * gstRate) / 100;
+                var total = amount + gstAmount;
+                var igstAmount = (total * igst) / 100;
+
+                $row.find('.amount').text('$' + amount.toFixed(2));
+                $row.find('.total').text('$' + (total + igstAmount).toFixed(2));
+
+                totalAmount += amount;
+                totalIgst += igstAmount;
+            });
+
+            var totalValue = totalAmount + totalIgst;
+            $('.amount-value').text('$' + totalAmount.toFixed(2));
+            $('.igst-value').text('$' + totalIgst.toFixed(2));
             $('.total-value').text('$' + totalValue.toFixed(2));
+
             $('.amount-in-words').text(convertNumberToWords(totalValue));
+            $('#total-item-value').val(totalValue);
         }
 
-        updateTotal();
-
-        $('.amount-value, .igst-value').on('DOMSubtreeModified', updateTotal);
-});
-
-
-
-
-
-
+        $('#myContainer').on('input', '.quantity, .rate, .gst-rate, .igst', function() {
+            updateTotals();
+        });
+    });
 </script>
 <script>
-    // $(document).ready(function() {
-    //     $('.saveShipingAddress').on('click', function() {
-    //         var name = $('#fullName').val();
-    //         var dataToSend = {
-    //                 name: name,
-    //         };
- 
-    //         $.ajax({
-    //             url: "{{ route('getStore') }}",
-    //             type: 'POST',
-    //             headers: {
-    //             'X-CSRF-TOKEN': '{{ csrf_token() }}',
-    //             },
-    //             data: dataToSend,
-    //             success: function(response) {
-    //             if (response.status === true) {
-    //                 toastr.success(response.message);
-    //                 //   setTimeout(function() {
-    //                 //     window.location.replace("");
-    //                 //     }, 1000);
-    //             } else {
-    //                 toastr.error(response.error);
-    //             }
-    //             },
-    //         });
-    //    });
-    // });
+   function validateInput(input) {
+        const inputValue = parseFloat(input.value);
+        if (inputValue <= 0 || inputValue >= 100) {
+            toastr.error('GST value should be greater than zero and less than hundred!');
+            input.value = 0;
+        }
+    }
 </script>

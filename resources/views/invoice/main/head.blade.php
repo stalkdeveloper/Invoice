@@ -35,5 +35,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('invoice/assets/css/user.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('invoice/assets/css/invoice.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('invoice/assets/css/responsive.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
 
 </head>

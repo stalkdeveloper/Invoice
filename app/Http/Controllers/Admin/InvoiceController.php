@@ -20,7 +20,8 @@ class InvoiceController extends Controller
     public function index(Request $request){
         try {
             $data = $this->InvoiceService->InvoiceAll($request);
-            return $data;
+            return view('invoice.index');
+            // return $data;
         } catch (\Throwable $th) {
             //throw $th;
         }
@@ -35,11 +36,32 @@ class InvoiceController extends Controller
     }
     public function store(Request $request){
         try {
-            echo "<pre>";
-            print_r($request);
-            die;
-        } catch (\Throwable $th) {
-            //throw $th;
+            $input = $request->all();
+            $invoiceValidator = new InvoiceValidator('add');
+            
+            if (!$invoiceValidator->with($input)->passes()) {
+                $customMessages = $invoiceValidator->getCustomMessages();
+                $validationErrors = $invoiceValidator->getValidationErrors();
+                foreach ($validationErrors as $message) {
+                    toastr()->error($message);
+                }
+                foreach ($customMessages as $field => $message) {
+                    toastr()->error($message);
+                }
+            
+                return back()->withErrors($invoiceValidator->getValidator())->withInput();
+            }            
+
+            $store = $this->InvoiceService->invoiceStore($input);
+            if($store){
+                toastr()->success('Successfully, Invoice Created..!!');
+                return redirect()->back();
+            }
+                toastr()->error('Sorry, Unable to create..!!');
+                return redirect()->back();
+
+        }  catch (\Exception $e) {
+            \Log::error($e->getMessage()." ".$e->getFile()." ".$e->getLine());
         }
     }
 
